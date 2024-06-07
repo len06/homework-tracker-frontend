@@ -7,7 +7,7 @@ function Header(){
     return(
         <header>
             <nav className="nav_bar">
-                <NavLink exact to='/' className="nav_logo">
+                <NavLink end to='/' className="nav_logo">
                     <img src={logo} alt="Homework Tracker Logo"/>
                     <h3>Homework Tracker</h3>
                 </NavLink>

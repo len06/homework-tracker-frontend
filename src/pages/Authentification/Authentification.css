@@ -68,12 +68,12 @@ article button {
 }
 
 article button:hover {
-    transform: scale(101%);
+    translate: scale(101%);
     background-color: #505050;
 }
 
 article button:active {
-    transform: scale(98%);
+    translate: scale(98%);
     background-color: #313131;
 }
 

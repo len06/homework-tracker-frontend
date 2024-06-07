@@ -1,6 +1,7 @@
 import React from 'react';
 import Main from './Main/Main';
-import { Login, Register } from './Authentification/Authentification';
+import Login from './Authentification/Login';
+import Register from './Authentification/Register';
 
 const pages = [
     {
