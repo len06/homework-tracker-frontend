@@ -1,0 +1,51 @@
+*{
+    box-sizing: border-box;
+}
+.card-box{
+    display:flex;
+    flex-direction: column;
+    padding: 5px 10px 16px 10px;
+    margin:2rem 2rem 2rem 2rem;
+    height: 90vh;
+    width: 15rem;
+    box-shadow: 5px 10px 5px rgba(0,0,0,0.5);
+    border-color: black;
+    border-radius: 1.5rem;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.card-title{
+    display: flex;
+    align-content: center;
+    height:90px;
+    padding: 0px 5px 10px 5px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    border-bottom: 2px solid grey;
+    border-color: black;
+}
+.starting-date{
+    font-weight: 100px;
+}
+
+.card-button{
+    margin-bottom: auto;
+    font-weight: bold;
+    background-color: darkgray;
+    border:1px ;
+    border-radius: 4px;
+}
+
+.card-button:hover{
+    background-color: grey;
+    color: black;
+
+}
+
+.card-dropzone{
+    display: flex;
+    align-content: center;
+    border-radius: 5px;
+    padding: 5px 5px;
+    border: 3px dotted black;
+}
