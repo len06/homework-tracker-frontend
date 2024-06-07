@@ -1,0 +1,24 @@
+.checklist-content{
+    display:flex;
+    flex-direction: column;
+}
+
+.main{
+    display:flex;
+    flex-direction: row;
+    margin-bottom: 0px;
+}
+
+.homework-name{
+    font-weight: bold;
+    margin-right:auto;
+}
+
+.tick-button{
+    border: 0px;
+    border-radius: 3px;
+}
+
+.tick-button:hover{
+    background-color: rgba(0,0,0,0.2);
+}

@@ -1,10 +1,10 @@
 import React from 'react'
 import "./ChecklistModal.css"
 
-    const ChecklistModal = ({onClose}) => {
+    const ChecklistModal = ({onClose,addChecklist}) => {
     const [checklistData, setChecklistData] = React.useState({
         homework_name:'',
-        deadline:''
+        deadline:'Daily'
     })
 
     const handleInputChange = (event) => {
@@ -17,8 +17,15 @@ import "./ChecklistModal.css"
     
     const handleSubmit = (event) => {
         event.preventDefault();
+        setChecklistData({
+            homework_name:'',
+            deadline:''
+        })
+        onClose();
+        addChecklist(checklistData.homework_name, checklistData.deadline);
     }
-
+    // console.log(checklistData);
+    
     return(
         <div className="checklistmodal">
             <div className="checklistmodal-content">
@@ -31,7 +38,7 @@ import "./ChecklistModal.css"
                     <input type='text' name='homework_name' value={checklistData.homework_name} onChange={handleInputChange} required/>
                     
                     <label htmlFor="deadline_options">Choose an option:</label>
-                    <select id="deadline_options" name="deadline_options" value={checklistData.deadline} onChange={handleInputChange} required>
+                    <select id="deadline_options" name="deadline" value={checklistData.deadline} onChange={handleInputChange} required>
                         <option value="daily">Daily</option>
                         <option value="weekly">Weekly</option>
                         <option value="biweekly">Biweekly</option>

@@ -5,7 +5,8 @@
     z-index: 10;
     width: 100%;
     height: 100%;
-
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
 
@@ -48,19 +49,19 @@
     background-color: rgba(0, 0, 0, 1);
 }
 
-.checklistmodal-form{
+.checklist-form{
     display: flex;
     flex-direction: column;
     margin-right: 0;
     padding-right: 0;
 }
 
-.checklistmodal-form > input{
+.checklist-form > input{
     margin: 0px 0px 0px 0px;
     max-width: 200px;
     width: 100%;
 }
 
-.checklistmodal-form > label{
+.checklist-form > label{
     margin:0px;
 }
