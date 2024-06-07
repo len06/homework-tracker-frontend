@@ -4,13 +4,12 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    gap: 10px;
+    gap: 20px;
     align-items: flex-start;
     top: 100px;
     left: 20px; 
     right: 20px;
     bottom: 20px;
-    overflow: auto;
 }
 
 .add-button{

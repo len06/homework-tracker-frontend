@@ -1,6 +1,7 @@
 import React from 'react'
 import './Card.css'
 import { useDropzone } from 'react-dropzone'
+import Checklist from 'Checklist'
 
 function Card(props){
     return(
