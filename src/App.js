@@ -39,7 +39,7 @@ function App() {
           }
           <button className="add-button" onClick={()=> setShowModal(true)}>+</button>
         </div>
-        <InputModal show={showModal} onClose={() => setShowModal(false)} addCard={addCard}/>
+        {showModal ? <InputModal onClose={() => setShowModal(false)} addCard={addCard}/> : undefined}
       </main>
     </>
   )
