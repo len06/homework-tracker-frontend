@@ -12,14 +12,25 @@ body{
 .nav_bar {
     display: flex;
     flex-direction: row;
-  }
+    justify-content: space-between;
+}
   
 .nav_logo {
+    display: flex;
+    flex-direction: row;
+}
+
+.nav_logo > img{
     display: flex;
     width: 8rem;
 }
 
-.nav_title {
+.nav_logo {
+    color: black;
+    text-decoration: none;
+}
+
+.nav_logo > h3{
     display: flex;
     margin-right: auto;
     margin-top: 35px;
