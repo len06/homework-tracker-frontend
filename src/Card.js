@@ -1,14 +1,18 @@
 import React from 'react'
 import './Card.css'
 import { useDropzone } from 'react-dropzone'
-import Checklist from './Checklist'
+import ChecklistModal from './modal/ChecklistModal'
+
 
 function Card(props){
+    const [showChecklistModal,setShowChecklistModal] = React.useState(false);
+    
     return(
         <div className="card-box">
             <h2 className="card-title">{props.subject_title}</h2>
             <p className="starting-date">Starting Date: {props.starting_date}</p>
-            <button className="card-button" onClick={props.handleClick}>+</button>
+            <button className="card-button" onClick={() => setShowChecklistModal(true)}>+</button>
+            {showChecklistModal ? <ChecklistModal onClose={() => setShowChecklistModal(false)} /> : undefined}
             <DropZone />
         </div>
     )

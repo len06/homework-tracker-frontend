@@ -26,7 +26,6 @@ const InputModal = ({ show, onClose, addCard}) => {
             starting_date:'',
             deadline_options:''
         })
-        console.log(formData.subject_title);
         addCard(formData.subject_title,formData.starting_date,formData.deadline_options);
         onClose()
     };
