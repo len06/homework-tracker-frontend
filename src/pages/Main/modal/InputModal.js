@@ -1,10 +1,12 @@
 import React from "react";
 import "./InputModal.css";
+import axios from 'axios';
 
 const InputModal = ({onClose, addCard}) => {
+    
     const [formData,setFormData] = React.useState({
         subject_title:"",
-        starting_date:"",
+        starting_date: new Date().toISOString().slice(0, 10),
         deadline_options:"daily",
     });
     
@@ -20,13 +22,23 @@ const InputModal = ({onClose, addCard}) => {
 
     function handleSubmit(event){
         event.preventDefault();
+
+        axios.post('/api/board', {
+            name: formData.subject_title
+        }).then((res) => {
+            const data = res.data;
+            addCard(data.Name, formData.starting_date, formData.deadline_options);
+            console.log(formData)
+        }).catch((err) => {
+            console.error(err);
+        })
+
+
         setFormData({
             subject_title:'',
-            starting_date:'',
+            starting_date: new Date().toISOString().slice(0, 10),
             deadline_options:''
         })
-        console.log(formData.subject_title);
-        addCard(formData.subject_title,formData.starting_date,formData.deadline_options);
         onClose()
     };
     
