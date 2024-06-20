@@ -16,8 +16,10 @@ function Login() {
             password: password
         }).then(() => {
             navigate('/');
+            localStorage.setItem('username', username);
         }).catch((err) => {
-            setWarning('Wrong username/password!')
+            setWarning('Wrong username/password!');
+            setPassword('');
         })
     }
 
@@ -26,6 +28,7 @@ function Login() {
             <h1>Welcome</h1>
             
             <input type='text'  placeholder='Username/Email'
+                value={username}
                 onKeyDown={(e) => {
                     if (e.key === 'Enter') {
                         passwordRef.current.focus();
@@ -36,6 +39,7 @@ function Login() {
             
             <input ref={passwordRef}
                 type='password' placeholder='Password'
+                value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 onKeyDown={(e) => {
                     if (e.key === 'Enter') {

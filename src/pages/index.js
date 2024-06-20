@@ -2,6 +2,7 @@ import React from 'react';
 import Main from './Main/Main';
 import Login from './Authentification/Login';
 import Register from './Authentification/Register';
+import Account from './Account/Account';
 
 const pages = [
     {
@@ -15,6 +16,10 @@ const pages = [
     {
         path: '/register',
         element: <Register/>
+    },
+    {
+        path: '/myaccount',
+        element: <Account/>
     }
 ];
 

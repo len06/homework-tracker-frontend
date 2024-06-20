@@ -4,6 +4,8 @@ import './Header.css'
 import { Link, NavLink } from 'react-router-dom';
 
 function Header(){
+    const username = localStorage.getItem('username');
+    console.log(username)
     return(
         <header>
             <nav className="nav_bar">
@@ -13,7 +15,16 @@ function Header(){
                 </NavLink>
                 <ul className='nav_options'>
                     <li><Link>Support</Link></li>
-                    <li><Link to='/login'>Log In</Link></li>
+                    
+                    { username ? 
+                        <li><Link to='/myaccount'>{username}</Link></li> :
+                        undefined
+                    }
+                    
+                    { !username ?
+                        <li><Link to='/login'>Log In</Link></li> :
+                        undefined
+                    }
                 </ul>
             </nav>
         </header>
