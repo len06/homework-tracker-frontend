@@ -1,105 +1,104 @@
-*{
-    box-sizing: border-box;
+* {
+  box-sizing: border-box;
 }
 
-:root{
-    --scrollbar-bg: #fff;
-    --scrollbar-thumb: #555;
-    --scrollbar-thumb-hover: #777;
+:root {
+  --scrollbar-bg: #fff;
+  --scrollbar-thumb: #555;
+  --scrollbar-thumb-hover: #777;
 }
-.card-box{
-    display:flex;
-    background-color: white;
-    flex-direction: column;
-    padding: 5px 10px 16px 10px;
-    height: calc(100vh - 150px);
-    width: 17rem;
-    box-shadow: 5px 10px 5px rgba(0,0,0,0.5);
-    margin-top:2rem;
-    margin-bottom: 2rem;
-    border-color: black;
-    border-radius: 7px;
-    overflow-y: auto;
-}
-
-.card-box::-webkit-scrollbar{
-    width:0;
-    height:0;
+.card-box {
+  display: flex;
+  background-color: white;
+  flex-direction: column;
+  padding: 5px 10px 16px 10px;
+  height: calc(100vh - 150px);
+  min-width: 17rem;
+  box-shadow: 5px 10px 5px rgba(0, 0, 0, 0.5);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-color: black;
+  border-radius: 7px;
+  overflow-y: auto;
+  
 }
 
-.card-box:hover::-webkit-scrollbar{
-    width:12px;
-    height: 12px;
-    border-radius: 6px;
+.card-box::-webkit-scrollbar {
+  width: 0;
+  height: 0;
 }
 
-.card-box:hover::-webkit-scrollbar-track{
-    background: var(--scrollbar-bg);
-    border-radius: 1.5rem;
+.card-box:hover::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  border-radius: 6px;
 }
 
-.card-box::-webkit-scrollbar-thumb{
-    background: var(--scrollbar-thumb);
-    border-radius: 1.5rem;
+.card-box:hover::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+  border-radius: 1.5rem;
 }
 
-.card-box::-webkit-scrollbar-thumb:hover{
-    background: var(--scrollbar-thumb-hover);
+.card-box::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 1.5rem;
 }
 
-.card-title{
-    display:flex;
-    text-align: center;
-    justify-content: center;
-    text-decoration: underline;
-    height:5rem;
-    padding: 0px 5px 5px 5px;
-    margin-bottom: 2px;
-
-}
-.starting-date{
-    font-weight: 100px;
-    margin-bottom: 3px;
-    margin-top: 3px;
-    align-self: center;
+.card-box::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
 }
 
-.card-button{
-    margin-bottom: 10px;
-    font-weight: bold;
-    background-color: #313131;
-    color:white;
-    border:1px ;
-    border-radius: 4px;
+.card-title {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  text-decoration: underline;
+  height: 5rem;
+  padding: 0px 5px 5px 5px;
+  margin-bottom: 2px;
+}
+.starting-date {
+  font-weight: 100px;
+  margin-bottom: 3px;
+  margin-top: 3px;
+  align-self: center;
 }
 
-.card-button:hover{
-    background-color: grey;
-    color: black;
-
+.card-button {
+  margin-bottom: 10px;
+  font-weight: bold;
+  background-color: #313131;
+  color: white;
+  border: 1px;
+  border-radius: 4px;
 }
 
-.card-dropzone{
-    display: flex;
-    align-content: center;
-    border-radius: 5px;
-    margin-top: 10px;
-    padding: 5px 5px;
-    border: 3px dotted black;
-    position: sticky;
+.card-button:hover {
+  background-color: grey;
+  color: black;
 }
 
-.checklist-container{
-    display:flex;
-    flex-direction: column;
-    margin-bottom: 10px;
-    gap: 5px;
-    border-bottom: 2px solid black;
+.card-dropzone {
+  display: flex;
+  align-content: center;
+  border-radius: 5px;
+  margin-top: 10px;
+  padding: 5px 5px;
+  border: 3px dotted black;
+  position: sticky;
 }
 
-.checklist-container > h2{
-    align-self: center;
-    color: lightskyblue;
-    margin: 0px;
-    text-decoration: underline;
+.checklist-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: auto;
+  gap: 5px;
+  border-bottom: 2px solid black;
+}
+
+.checklist-container > h2 {
+  align-self: center;
+  color: lightskyblue;
+  margin: 0px;
+  text-decoration: underline;
 }

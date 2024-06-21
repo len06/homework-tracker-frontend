@@ -22,7 +22,7 @@ function Main() {
       }).catch((err) => {
         console.error(err);
       })
-    }, [axios])
+    },[])
     
     function addCard(subject_title,starting_date,deadline){
         setHomeworkCards((prevCards) => {
@@ -37,6 +37,12 @@ function Main() {
         ]})
     }
 
+    function removeCard(id){
+      setHomeworkCards((prevCards) => {
+        return prevCards.filter((card) => id !== card.id);
+      })
+    }
+
     return (<>
         <div className="cards-container">
           {
@@ -46,6 +52,7 @@ function Main() {
                 subject_title={card.subject_title} 
                 starting_date={card.starting_date} 
                 deadline={card.deadline}
+                removeCard={removeCard}
               />
             )
           )
