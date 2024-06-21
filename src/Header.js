@@ -1,17 +1,30 @@
 import React from 'react'
-import logo from './images/logo.jpg'
+import logo from './assets/logo.jpg'
 import './Header.css'
+import { Link, NavLink } from 'react-router-dom';
 
 function Header(){
+    const username = localStorage.getItem('username');
+    console.log(username)
     return(
         <header>
             <nav className="nav_bar">
-                <img className="nav_logo"src={logo} alt="Homework Tracker Logo"/>
-                <h3 className='nav_title'>Homework Tracker</h3>
+                <NavLink end to='/' className="nav_logo">
+                    <img src={logo} alt="Homework Tracker Logo"/>
+                    <h3>Homework Tracker</h3>
+                </NavLink>
                 <ul className='nav_options'>
-                    <li>Home</li>
-                    <li>Support</li>
-                    <li>Profile</li>
+                    <li><Link>Support</Link></li>
+                    
+                    { username ? 
+                        <li><Link to='/myaccount'>{username}</Link></li> :
+                        undefined
+                    }
+                    
+                    { !username ?
+                        <li><Link to='/login'>Log In</Link></li> :
+                        undefined
+                    }
                 </ul>
             </nav>
         </header>

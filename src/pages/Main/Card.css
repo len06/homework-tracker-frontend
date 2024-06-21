@@ -9,6 +9,7 @@
 }
 .card-box{
     display:flex;
+    background-color: white;
     flex-direction: column;
     padding: 5px 10px 16px 10px;
     height: calc(100vh - 150px);
