@@ -37,29 +37,30 @@ function Main() {
         ]})
     }
 
-    function removeCard(id){
-      setHomeworkCards((prevCards) => {
-        return prevCards.filter((card) => id !== card.id);
-      })
+    function removeCard(i){
+      setHomeworkCards((prevCards) => [
+        ...prevCards.slice(0, i),
+        ...prevCards.slice(i + 1, prevCards.length)
+      ])
     }
 
     return (<>
+        {showModal ? <InputModal onClose={() => setShowModal(false)} addCard={addCard}/> : undefined}
         <div className="cards-container">
           {
-            homeworkCards.map((card) => (
+            homeworkCards.map((card, i) => (
               <Card 
-                key={card.id}
+                key={i}
                 subject_title={card.subject_title} 
                 starting_date={card.starting_date} 
                 deadline={card.deadline}
-                removeCard={removeCard}
+                removeCard={() => removeCard(i)}
               />
             )
           )
           }
-          <button className="add-button" onClick={()=> setShowModal(true)}>+</button>
+          <button className="add-button" onClick={()=> {console.log("test"); setShowModal(true)}}>+</button>
         </div>
-        {showModal ? <InputModal onClose={() => setShowModal(false)} addCard={addCard}/> : undefined}
     </>);
 }
 

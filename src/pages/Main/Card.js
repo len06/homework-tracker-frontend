@@ -21,7 +21,7 @@ function Card({subject_title,starting_date,removeCard}){
     
     return(
         <div className="card-box">
-            <button className="close" type="button" onClick={removeCard()}>
+            <button className="close" type="button" onClick={removeCard}>
                 &times;
             </button>
             <h2 className="card-title">{subject_title}</h2>
