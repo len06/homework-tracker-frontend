@@ -19,7 +19,7 @@
     margin-bottom: 2rem;
     border-color: black;
     border-radius: 7px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .card-box::-webkit-scrollbar{
