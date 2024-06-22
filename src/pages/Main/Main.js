@@ -3,10 +3,12 @@ import React, { useEffect } from 'react';
 import InputModal from './modal/InputModal'
 import Card from './Card'
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function Main() {
     const [showModal, setShowModal] = React.useState(false);
     const [homeworkCards, setHomeworkCards] = React.useState([]);
+    const navigate = useNavigate();
 
     useEffect(() => {
       axios.get('/api/board').then((res) => {
@@ -20,7 +22,10 @@ function Main() {
         })))
         
       }).catch((err) => {
-        console.error(err);
+        if (err.response.data.includes('jwt')) {
+          console.log(err)
+          navigate('/login');
+        }
       })
     }, [axios])
     
