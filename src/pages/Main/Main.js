@@ -4,6 +4,7 @@ import InputModal from './modal/InputModal'
 import Card from './Card'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 
 function Main() {
     const [showModal, setShowModal] = React.useState(false);
@@ -25,7 +26,10 @@ function Main() {
         if (err.response.data.includes('jwt')) {
           console.log(err);
           localStorage.removeItem('username');
+          const cookies = Cookies();
+          cookies.removeItem('token');
           navigate('/login');
+          window.location.reload();
         }
       })
     },[])

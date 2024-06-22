@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 function Header(){
     const username = localStorage.getItem('username');
-    console.log(username)
+    
     return(
         <header>
             <nav className="nav_bar">

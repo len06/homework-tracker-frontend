@@ -17,6 +17,7 @@ function Login() {
         }).then(() => {
             navigate('/');
             localStorage.setItem('username', username);
+            window.location.reload();
         }).catch((err) => {
             setWarning('Wrong username/password!');
             setPassword('');
