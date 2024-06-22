@@ -5,7 +5,7 @@ import Checklist from './Checklist'
 import ChecklistModal from './modal/ChecklistModal'
 
 
-function Card(props){
+function Card({subject_title,starting_date,removeCard}){
     const [showChecklistModal,setShowChecklistModal] = React.useState(false);
     const [checklistItems,setChecklistItems] = React.useState([]);
     
@@ -18,15 +18,14 @@ function Card(props){
             }]
         })
     }
-
     
     return(
         <div className="card-box">
-            <button className="close" type="button">
+            <button className="close" type="button" onClick={removeCard}>
                 &times;
             </button>
-            <h2 className="card-title">{props.subject_title}</h2>
-            <p className="starting-date">Starting Date: {props.starting_date}</p>
+            <h2 className="card-title">{subject_title}</h2>
+            <p className="starting-date">Starting Date: {starting_date}</p>
             
             <div className="checklist-container">
                 <h2>Checklist: </h2>
