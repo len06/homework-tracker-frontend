@@ -23,7 +23,8 @@ function Main() {
         
       }).catch((err) => {
         if (err.response.data.includes('jwt')) {
-          console.log(err)
+          console.log(err);
+          localStorage.removeItem('username');
           navigate('/login');
         }
       })
