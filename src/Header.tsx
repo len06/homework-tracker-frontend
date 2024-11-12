@@ -4,7 +4,11 @@ import './Header.css'
 import { Link, NavLink } from 'react-router-dom';
 
 function Header(){
-    const username = localStorage.getItem('username');
+    const username:string | null = localStorage.getItem('username');
+    if(!username ){
+        console.error("The username cannot be found!")
+        return;
+    }
     console.log(username)
     return(
         <header>
@@ -14,7 +18,7 @@ function Header(){
                     <h3>Homework Tracker</h3>
                 </NavLink>
                 <ul className='nav_options'>
-                    <li><Link>Support</Link></li>
+                    <li><Link to = "#">Support</Link></li>
                     
                     { username ? 
                         <li><Link to='/myaccount'>{username}</Link></li> :

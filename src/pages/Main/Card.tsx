@@ -4,12 +4,25 @@ import { useDropzone } from 'react-dropzone'
 import Checklist from './Checklist'
 import ChecklistModal from './modal/ChecklistModal'
 
+interface CardProp {
+    subject_title: string
+    starting_date: string
+    deadline: string
+    removeCard: () => void
+}
 
-function Card({subject_title,starting_date,removeCard}){
-    const [showChecklistModal,setShowChecklistModal] = React.useState(false);
-    const [checklistItems,setChecklistItems] = React.useState([]);
+interface ChecklistItems {
+    id: number
+    homework_name:string
+    deadline:string
+}
+
+
+function Card(props:CardProp){
+    const [showChecklistModal,setShowChecklistModal] = React.useState<Boolean>(false);
+    const [checklistItems,setChecklistItems] = React.useState<ChecklistItems[]>([]);
     
-    function addChecklistItem(homework_name,deadline){
+    function addChecklistItem(homework_name:string,deadline:string){
         setChecklistItems((prevItems) => {
             return [...prevItems,{
                 id:prevItems.length + 1,
@@ -21,11 +34,11 @@ function Card({subject_title,starting_date,removeCard}){
     
     return(
         <div className="card-box">
-            <button className="close" type="button" onClick={removeCard}>
+            <button className="close" type="button" onClick={props.removeCard}>
                 &times;
             </button>
-            <h2 className="card-title">{subject_title}</h2>
-            <p className="starting-date">Starting Date: {starting_date}</p>
+            <h2 className="card-title">{props.subject_title}</h2>
+            <p className="starting-date">Starting Date: {props.starting_date}</p>
             
             <div className="checklist-container">
                 <h2>Checklist: </h2>

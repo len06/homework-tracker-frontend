@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Header from './Header';
 import './App.css';
 import { Outlet } from 'react-router-dom';
 
-function App() {
+function App():React.JSX.Element{
   return(
     <>
-      <Header className="app-header" />
+      <Header />
       <main className="app-content">
         <Outlet/>
       </main>

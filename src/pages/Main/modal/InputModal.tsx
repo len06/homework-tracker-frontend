@@ -2,7 +2,13 @@ import React from "react";
 import "./InputModal.css";
 import axios from 'axios';
 
-const InputModal = ({onClose, addCard}) => {
+interface InputModalProps{
+    onClose: () => void
+    addCard: (subject_title:string,starting_date:string,deadline:string) => void
+}
+
+
+function InputModal(props:InputModalProps){
     
     const [formData,setFormData] = React.useState({
         subject_title:"",
@@ -11,8 +17,8 @@ const InputModal = ({onClose, addCard}) => {
     });
     
     
-    const handleInputChange = (event) => {
-        const {name,value} = event.target;
+    const handleInputChange = (event:React.ChangeEvent<HTMLElement>) => {
+        const {name,value} = event.target as HTMLSelectElement | HTMLInputElement;
         setFormData((prevFormData) =>
             ({...prevFormData,
                 [name]:value
@@ -20,14 +26,14 @@ const InputModal = ({onClose, addCard}) => {
         );
     }
 
-    function handleSubmit(event){
+    function handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
 
         axios.post('/api/board', {
             name: formData.subject_title
         }).then((res) => {
             const data = res.data;
-            addCard(data.Name, formData.starting_date, formData.deadline_options);
+            props.addCard(data.Name, formData.starting_date, formData.deadline_options);
             console.log(formData)
         }).catch((err) => {
             console.error(err);
@@ -39,14 +45,14 @@ const InputModal = ({onClose, addCard}) => {
             starting_date: new Date().toISOString().slice(0, 10),
             deadline_options:''
         })
-        onClose()
+        props.onClose()
     };
     
     return (
         <div className="inputmodal">
             <div className="inputmodal-content">
                 <form className="inputmodal-form" onSubmit={handleSubmit}>
-                <button className="close" type="button" onClick={onClose}>
+                <button className="close" type="button" onClick={props.onClose}>
                     &times;
                 </button>
 

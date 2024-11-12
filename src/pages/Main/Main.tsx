@@ -4,15 +4,27 @@ import InputModal from './modal/InputModal'
 import Card from './Card'
 import axios from 'axios';
 
+interface HomeWorkCards{
+  id: number
+  subject_title: string
+  starting_date: string
+  deadline: string
+}
+
+interface Board{
+  ID:number 
+  Name: string  
+}
+
 function Main() {
     const [showModal, setShowModal] = React.useState(false);
-    const [homeworkCards, setHomeworkCards] = React.useState([]);
+    const [homeworkCards, setHomeworkCards] = React.useState<HomeWorkCards[]>([]);
 
     useEffect(() => {
       axios.get('/api/board').then((res) => {
         const data = res.data;
 
-        setHomeworkCards(data.map(board => ({
+        setHomeworkCards(data.map((board: Board) => ({
           id: board.ID,
           subject_title: board.Name,
           starting_date: new Date().toISOString().slice(0, 10),
@@ -24,7 +36,7 @@ function Main() {
       })
     },[])
     
-    function addCard(subject_title,starting_date,deadline){
+    function addCard(subject_title:string,starting_date:string,deadline:string){
         setHomeworkCards((prevCards) => {
         return [
         ...prevCards,
@@ -37,7 +49,7 @@ function Main() {
         ]})
     }
 
-    function removeCard(i){
+    function removeCard(i:number){
       setHomeworkCards((prevCards) => [
         ...prevCards.slice(0, i),
         ...prevCards.slice(i + 1, prevCards.length)

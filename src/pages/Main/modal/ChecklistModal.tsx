@@ -1,28 +1,33 @@
 import React from 'react'
 import "./ChecklistModal.css"
 
-    const ChecklistModal = ({onClose,addChecklist}) => {
+type ChecklistModalProp = {
+    onClose: () => void
+    addChecklist: (homework_name:string,deadline:string) => void
+}
+
+    function ChecklistModal(props:ChecklistModalProp){
     const [checklistData, setChecklistData] = React.useState({
         homework_name:'',
         deadline:'Daily'
     })
 
-    const handleInputChange = (event) => {
-        const {name, value} = event.target;
+    const handleInputChange = (event:React.ChangeEvent<HTMLElement>) => {
+        const {name, value} = event.target as HTMLInputElement | HTMLSelectElement;
         setChecklistData((prevChecklistData) => ({
             ...prevChecklistData,
             [name]: value
         }))
     }
     
-    const handleSubmit = (event) => {
+    const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setChecklistData({
             homework_name:'',
             deadline:''
         })
-        onClose();
-        addChecklist(checklistData.homework_name, checklistData.deadline);
+        props.onClose();
+        props.addChecklist(checklistData.homework_name, checklistData.deadline);
     }
     // console.log(checklistData);
     
@@ -30,7 +35,7 @@ import "./ChecklistModal.css"
         <div className="checklistmodal">
             <div className="checklistmodal-content">
                 <form className="checklist-form" onSubmit={handleSubmit}>
-                    <button className="close" type="button" onClick={onClose}>
+                    <button className="close" type="button" onClick={props.onClose}>
                     &times;
                     </button>
                     
