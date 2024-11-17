@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 function Login() {
-  const passwordRef:React.MutableRefObject<HTMLInputElement|null|undefined> = useRef();
+  const passwordRef = useRef<HTMLInputElement>(null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [warning, setWarning] = useState("");

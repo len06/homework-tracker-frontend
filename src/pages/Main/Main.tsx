@@ -23,6 +23,7 @@ function Main() {
     useEffect(() => {
       axios.get('/api/board').then((res) => {
         const data = res.data;
+    
 
         setHomeworkCards(data.map((board: Board) => ({
           id: board.ID,
@@ -35,6 +36,10 @@ function Main() {
         console.error(err);
       })
     },[])
+
+    useEffect(() => {
+      axios.get('api/health').then((res) => console.log(res))
+    }, [])
     
     function addCard(subject_title:string,starting_date:string,deadline:string){
         setHomeworkCards((prevCards) => {
