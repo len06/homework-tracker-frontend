@@ -5,11 +5,7 @@ import { Link, NavLink } from 'react-router-dom';
 
 function Header():React.JSX.Element | null{
     const username:string | null = localStorage.getItem('username');
-    if(!username ){
-        console.error("The username cannot be found!")
-        return null;
-    }
-    console.log(username)
+    
     return(
         <header>
             <nav className="nav_bar">
@@ -20,14 +16,12 @@ function Header():React.JSX.Element | null{
                 <ul className='nav_options'>
                     <li><Link to = "#">Support</Link></li>
                     
-                    { username ? 
-                        <li><Link to='/myaccount'>{username}</Link></li> :
-                        undefined
+                    { username &&
+                        <li><Link to='/myaccount'>{username}</Link></li>
                     }
                     
-                    { !username ?
-                        <li><Link to='/login'>Log In</Link></li> :
-                        undefined
+                    { !username &&
+                        <li><Link to='/login'>Log In</Link></li>
                     }
                 </ul>
             </nav>
